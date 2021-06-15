@@ -39,10 +39,11 @@ set(CMAKE_C_STANDARD 11)
 add_executable(pixellogic
     src/main.cpp
 # resources and other misc stuff
-    ${version_file}
-)
 
-target_compile_definitions(pixellogic PRIVATE CUBE_CLIENT)
+)
+# ${version_file} ^^
+
+#target_compile_definitions(pixellogic PRIVATE CUBE_CLIENT)
 
 # optimize to have at least AVX
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -mavx")
@@ -52,7 +53,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wpedantic")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-deprecated-anon-enum-enum-conversion -Wno-defaulted-function-deleted -Wno-gnu-zero-variadic-macro-arguments -Wno-reorder-ctor -Wno-c99-extensions")
 
 # shared code
-target_link_libraries(pixellogic PRIVATE shared shared_platform)
+#target_link_libraries(pixellogic PRIVATE shared shared_platform)
 
 target_include_directories(pixellogic PUBLIC src)
 
